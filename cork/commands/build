@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker build -t ${CORK_PROJECT_NAME} .
