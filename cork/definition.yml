@@ -1,0 +1,13 @@
+version: 1
+
+stages:
+  build:
+    - name: build
+      type: command
+      args:
+        command: build
+
+  default:
+    - type: stage
+      args:
+        stage: build
