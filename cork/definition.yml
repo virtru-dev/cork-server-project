@@ -6,8 +6,27 @@ params:
     description: The docker tag to use for the project
     default: ""
 
+  base_docker_repo:
+    type: string
+    description: The base docker repo to use for the cork server
+    default: virtru/base-cork-server
+
+  base_docker_tag:
+    type: string
+    description: The base docker tag to use for the cork server
+    default: latest
+
 stages:
   build:
+    - name: generate_dockerfile
+      type: command
+      args:
+        command: generate_dockerfile
+        params:
+          base_docker_repo: '{{ param "base_docker_repo" }}'
+          base_docker_tag: '{{ param "base_docker_tag" }}'
+
+
     - name: build
       type: command
       args:
