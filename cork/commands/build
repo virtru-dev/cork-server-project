@@ -1,3 +1,16 @@
 #!/bin/bash
 
-docker build -t ${CORK_PROJECT_NAME} .
+set -e
+
+docker_tag="${CORK_PARAM_DOCKER_TAG}"
+
+if [[ -z "${docker_tag// }" ]]; then
+    docker_tag="${CORK_PROJECT_NAME}"
+fi
+
+docker build -t ${docker_tag} .
+
+echo ""
+echo "***"
+echo "* Cork server tagged with ${docker_tag}"
+echo "***"

@@ -1,1 +1,1 @@
-FROM virtru/base-cork-server:xenial
+FROM virtru/common-cork-server:xenial
